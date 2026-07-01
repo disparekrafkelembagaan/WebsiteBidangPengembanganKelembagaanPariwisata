@@ -68,6 +68,12 @@
                     <a href="#direktori" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">Direktori Sektor</a>
                     <a href="#pendaftaran" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">E-Registrasi</a>
                     
+                    <!-- Connection Status Badge -->
+                    <div id="connection-status-badge" class="ml-2 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 bg-amber-50 text-amber-600 border border-amber-200 transition-all duration-300">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span>Menghubungkan...</span>
+                    </div>
+
                     <!-- Admin Portal Button -->
                     <button id="nav-admin-btn" onclick="openLoginModal()" class="ml-4 px-4 py-2 rounded-lg text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100 transition flex items-center gap-1.5">
                         <i class="fa-solid fa-user-shield"></i>
@@ -77,6 +83,11 @@
 
                 <!-- Mobile menu button -->
                 <div class="flex items-center lg:hidden gap-2">
+                    <!-- Mobile Connection Status Badge -->
+                    <div id="connection-status-badge-mobile" class="px-2 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 bg-amber-50 text-amber-600 border border-amber-200 transition-all duration-300">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span>Menghubungkan...</span>
+                    </div>
                     <button onclick="openLoginModal()" class="p-2.5 rounded-md text-sky-700 bg-sky-50 border border-sky-100 text-sm">
                         <i class="fa-solid fa-user-shield"></i>
                     </button>
@@ -786,19 +797,58 @@
                 }
             } catch (err) {
                 console.warn("Auth offline fallback:", err);
-                showToast("Berjalan dalam mode luring/lokal.", "info");
+                setOfflineUI();
             }
         });
 
         // Auth status state tracker
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                setOnlineUI();
                 syncSiteBranding();
                 syncNews();
                 syncDirectory();
                 syncSubmissions();
+            } else {
+                setOfflineUI();
             }
         });
+
+        function setOnlineUI() {
+            const badges = [
+                document.getElementById('connection-status-badge'),
+                document.getElementById('connection-status-badge-mobile')
+            ];
+            badges.forEach(badge => {
+                if (badge) {
+                    badge.className = badge.id.includes('mobile') 
+                        ? "px-2 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 bg-emerald-50 text-emerald-600 border border-emerald-200"
+                        : "ml-2 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 bg-emerald-50 text-emerald-600 border border-emerald-200 transition-all duration-300";
+                    
+                    const dotSize = badge.id.includes('mobile') ? 'w-1.5 h-1.5' : 'w-2 h-2';
+                    badge.innerHTML = `<span class="${dotSize} rounded-full bg-emerald-500 animate-pulse"></span><span>Online (Cloud)</span>`;
+                }
+            });
+            showToast("Tersambung ke Basis Data Cloud (Mode Online)", "success");
+        }
+
+        function setOfflineUI() {
+            const badges = [
+                document.getElementById('connection-status-badge'),
+                document.getElementById('connection-status-badge-mobile')
+            ];
+            badges.forEach(badge => {
+                if (badge) {
+                    badge.className = badge.id.includes('mobile')
+                        ? "px-2 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 bg-rose-50 text-rose-600 border border-rose-200"
+                        : "ml-2 px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 bg-rose-50 text-rose-600 border border-rose-200 transition-all duration-300";
+                    
+                    const dotSize = badge.id.includes('mobile') ? 'w-1.5 h-1.5' : 'w-2 h-2';
+                    badge.innerHTML = `<span class="${dotSize} rounded-full bg-rose-500"></span><span>Mode Luring</span>`;
+                }
+            });
+            showToast("Gagal tersambung ke server. Menjalankan luring.", "info");
+        }
 
         // 1. BRANDING SYNC PIPELINE
         function syncSiteBranding() {
