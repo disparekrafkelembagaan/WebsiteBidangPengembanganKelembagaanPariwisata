@@ -524,6 +524,38 @@
                     </div>
                 </div>
             </div>
+
+            <!-- DATABASE CLOUD CONNECTION MANAGER (Superadmin only, perfect for GitHub deployment) -->
+            <div class="mt-8 bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                <h3 class="font-extrabold text-slate-900 text-base flex items-center justify-between">
+                    <span class="flex items-center">
+                        <i class="fa-solid fa-cloud-sun text-sky-600 mr-2"></i>
+                        Integrasi Koneksi Database Cloud (Solusi GitHub Pages)
+                    </span>
+                    <span id="config-status-pill" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">Mengecek Status...</span>
+                </h3>
+                
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Saat website ini dijalankan di server eksternal seperti <strong>GitHub Pages</strong>, platform tidak menyediakan database bawaan. 
+                    Silakan tempel <strong>Firebase Web SDK Config</strong> Anda di bawah ini agar website ini langsung beralih ke <strong>Mode Online</strong> menggunakan database mandiri Anda.
+                </p>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Konfigurasi Firebase SDK (Format JSON)</label>
+                        <textarea id="db-config-textarea" rows="6" class="w-full px-4 py-3 font-mono text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50 text-slate-700" placeholder='{&#10;  "apiKey": "AIzaSy...",&#10;  "authDomain": "app-name.firebaseapp.com",&#10;  "projectId": "app-name",&#10;  "storageBucket": "app-name.appspot.com",&#10;  "messagingSenderId": "12345678",&#10;  "appId": "1:12345678:web:abcd"&#10;}'></textarea>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="saveCustomFirebaseConfig()" class="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-plug"></i> Simpan & Hubungkan Database Baru
+                        </button>
+                        <button onclick="clearCustomFirebaseConfig()" class="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold rounded-xl transition flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-left"></i> Gunakan Database Bawaan Platform
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -760,17 +792,34 @@
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Setup Firebase configurations
-        const firebaseConfig = typeof __firebase_config !== 'undefined' 
-            ? JSON.parse(__firebase_config) 
-            : {
-                apiKey: "dummy-key-for-preview",
-                authDomain: "disparekraf-tanggamus.firebaseapp.com",
-                projectId: "disparekraf-tanggamus",
-                storageBucket: "disparekraf-tanggamus.appspot.com",
-                messagingSenderId: "12345678",
-                appId: "1:12345678:web:abcd"
-            };
+        // Setup Firebase configurations with LocalStorage support for GitHub Pages deployment
+        let firebaseConfig;
+        let isCustomConfigUsed = false;
+        
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+            firebaseConfig = JSON.parse(__firebase_config);
+        } else {
+            const savedConfig = localStorage.getItem('tanggamus_firebase_config');
+            if (savedConfig) {
+                try {
+                    firebaseConfig = JSON.parse(savedConfig);
+                    isCustomConfigUsed = true;
+                } catch (e) {
+                    console.error("Gagal membaca konfigurasi Firebase kustom dari LocalStorage:", e);
+                }
+            }
+            
+            if (!firebaseConfig) {
+                firebaseConfig = {
+                    apiKey: "dummy-key-for-preview",
+                    authDomain: "disparekraf-tanggamus.firebaseapp.com",
+                    projectId: "disparekraf-tanggamus",
+                    storageBucket: "disparekraf-tanggamus.appspot.com",
+                    messagingSenderId: "12345678",
+                    appId: "1:12345678:web:abcd"
+                };
+            }
+        }
 
         // Initialize App & Services
         const app = initializeApp(firebaseConfig);
@@ -1616,6 +1665,7 @@
                 // Redraw modules to expose editing controls
                 renderNewsCarousel();
                 renderDirectoryGrid();
+                initConnectionManagerUI();
             } else {
                 showToast("Kode sandi yang dimasukkan tidak cocok.", "error");
             }
@@ -1633,6 +1683,58 @@
 
             renderNewsCarousel();
             renderDirectoryGrid();
+        };
+
+        // 9. DATABASE CLOUD CONNECTION UTILITY HANDLERS
+        window.initConnectionManagerUI = function() {
+            const textarea = document.getElementById('db-config-textarea');
+            const pill = document.getElementById('config-status-pill');
+            
+            if (textarea && pill) {
+                if (isCustomConfigUsed) {
+                    textarea.value = JSON.stringify(firebaseConfig, null, 2);
+                    pill.className = "text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200";
+                    pill.innerHTML = '<i class="fa-solid fa-circle-check"></i> Database Kustom Aktif (Online)';
+                } else if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                    textarea.value = '';
+                    pill.className = "text-[10px] font-bold px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 border border-sky-200";
+                    pill.innerHTML = '<i class="fa-solid fa-window-restore"></i> Database Bawaan Platform (Online)';
+                } else {
+                    textarea.value = '';
+                    pill.className = "text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200 animate-pulse";
+                    pill.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Kunci Dummy (Luring)';
+                }
+            }
+        };
+
+        window.saveCustomFirebaseConfig = function() {
+            const inputVal = document.getElementById('db-config-textarea').value.trim();
+            if (!inputVal) {
+                showToast("Teks konfigurasi kosong.", "error");
+                return;
+            }
+            try {
+                const parsed = JSON.parse(inputVal);
+                if (!parsed.apiKey || !parsed.projectId) {
+                    showToast("Format tidak valid! Pastikan mengandung 'apiKey' dan 'projectId'.", "error");
+                    return;
+                }
+                localStorage.setItem('tanggamus_firebase_config', JSON.stringify(parsed));
+                showToast("Konfigurasi disimpan! Memuat ulang sistem...", "success");
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+            } catch (e) {
+                showToast("Format JSON tidak valid! Periksa tanda baca.", "error");
+            }
+        };
+
+        window.clearCustomFirebaseConfig = function() {
+            localStorage.removeItem('tanggamus_firebase_config');
+            showToast("Kembali menggunakan database bawaan platform. Memuat ulang...", "info");
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
         };
 
         // Elegant Toast Alert Box System
