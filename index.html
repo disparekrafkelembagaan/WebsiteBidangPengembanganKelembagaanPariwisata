@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidang Pengembangan Kelembagaan - Disparekraf Tanggamus</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom Elegant Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284c7;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0369a1;
+        }
+        /* Smooth Slide Fade Animation */
+        .slide-fade {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        /* Precision 3cm circles (113.4px) */
+        .circle-3cm {
+            width: 3cm;
+            height: 3cm;
+            min-width: 3cm;
+            min-height: 3cm;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <img id="nav-logo-img" src="https://placehold.co/150x150/0284c7/ffffff?text=Disparekraf" class="w-12 h-12 rounded-xl object-contain bg-slate-50 p-1 shadow-md border border-slate-100">
+                        <div>
+                            <span class="block text-xs font-bold text-sky-600 uppercase tracking-widest leading-none">Kelembagaan Pariwisata</span>
+                            <span class="block text-sm sm:text-base font-extrabold text-slate-900 tracking-tight leading-none mt-1.5">DISPAREKRAF TANGGAMUS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation Items -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">Beranda</a>
+                    <a href="#tupoksi" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">Tugas & Fungsi</a>
+                    <a href="#struktur" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">Struktur Organisasi</a>
+                    <a href="#direktori" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">Direktori Sektor</a>
+                    <a href="#pendaftaran" class="px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition">E-Registrasi</a>
+                    
+                    <!-- Admin Portal Button -->
+                    <button id="nav-admin-btn" onclick="openLoginModal()" class="ml-4 px-4 py-2 rounded-lg text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span>Akses Superadmin</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center lg:hidden gap-2">
+                    <button onclick="openLoginModal()" class="p-2.5 rounded-md text-sky-700 bg-sky-50 border border-sky-100 text-sm">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-inner">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#beranda" class="block px-4 py-2.5 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-sky-600">Beranda</a>
+                <a href="#tupoksi" class="block px-4 py-2.5 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-sky-600">Tugas & Fungsi</a>
+                <a href="#struktur" class="block px-4 py-2.5 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-sky-600">Struktur Organisasi</a>
+                <a href="#direktori" class="block px-4 py-2.5 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-sky-600">Direktori Sektor</a>
+                <a href="#pendaftaran" class="block px-4 py-2.5 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-sky-600">E-Registrasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Superadmin Notification Strip Banner -->
+    <div id="admin-strip" class="hidden bg-amber-500 text-slate-900 py-2.5 px-4 font-bold text-sm text-center flex flex-wrap justify-center items-center gap-2 relative z-35 shadow-md">
+        <span><i class="fa-solid fa-user-shield"></i> Akses Superadmin Aktif. Anda dapat menyesuaikan konten, mengelola direktori, & mengubah berkas gambar tanpa batas ukuran.</span>
+        <button onclick="logoutAdmin()" class="bg-slate-900 text-white hover:bg-slate-800 text-xs px-3 py-1 rounded-md transition ml-2">Keluar Portal</button>
+    </div>
+
+    <!-- TOAST NOTIFICATION BOX -->
+    <div id="toast-container" class="fixed top-24 right-4 z-50 flex flex-col gap-2 max-w-sm w-full"></div>
+
+    <!-- HERO SECTION & BERANDA -->
+    <section id="beranda" class="relative py-20 sm:py-28 lg:py-36 overflow-hidden bg-slate-900">
+        <!-- Customizable Hero Background Layer -->
+        <div id="hero-bg-layer" class="absolute inset-0 z-0 opacity-40 bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-tr from-sky-950 via-slate-950 to-teal-950 mix-blend-multiply"></div>
+        
+        <!-- Top Right Double Logos Container (3cm Height) -->
+        <div class="absolute top-6 right-6 z-20 flex items-center space-x-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-3xl shadow-xl">
+            <!-- Dinas Logo (Adapts to original shape, height 3cm) -->
+            <div class="relative group">
+                <div class="h-[3cm] px-2 py-1.5 rounded-2xl border-2 border-sky-400 bg-white/95 flex items-center justify-center transition-transform hover:scale-105" style="min-width: 2.2cm; max-width: 4cm;">
+                    <img id="dinas-logo-img" src="https://placehold.co/150x150/0f172a/ffffff?text=Logo+Dinas" class="h-full w-auto object-contain">
+                </div>
+                <span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] bg-slate-950/80 text-white px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Logo Dinas</span>
+            </div>
+            <!-- Bidang Logo (Adapts to original shape, height 3cm) -->
+            <div class="relative group">
+                <div class="h-[3cm] px-2 py-1.5 rounded-2xl border-2 border-teal-400 bg-white/95 flex items-center justify-center transition-transform hover:scale-105" style="min-width: 2.2cm; max-width: 4cm;">
+                    <img id="bidang-logo-img" src="https://placehold.co/150x150/0284c7/ffffff?text=Logo+Bidang" class="h-full w-auto object-contain">
+                </div>
+                <span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] bg-slate-950/80 text-white px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Logo Bidang</span>
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                <div class="text-left lg:col-span-7">
+                    <div class="inline-flex items-center space-x-2 bg-sky-500/20 text-sky-300 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
+                        <i class="fa-solid fa-circle-nodes"></i>
+                        <span>Tata Kelola Kelembagaan & Pariwisata Berkelanjutan</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                        Pengembangan <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">Kelembagaan</span> Pariwisata
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                        Mendorong kapasitas sumber daya manusia, akreditasi usaha kepariwisataan, serta pembinaan organisasi kemitraan lokal guna memperkokoh ekosistem wisata Kabupaten Tanggamus.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#direktori" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-bold rounded-xl text-slate-900 bg-sky-400 hover:bg-sky-300 transition duration-150 shadow-lg shadow-sky-400/20">
+                            <i class="fa-solid fa-database mr-2"></i> Jelajahi Direktori Sektor
+                        </a>
+                        <a href="#pendaftaran" class="inline-flex items-center justify-center px-6 py-3 border border-slate-600 hover:border-sky-500 text-sm font-bold rounded-xl text-white hover:text-sky-300 bg-transparent transition duration-150">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Ajukan Kemitraan
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Auto-rotating News Slider Container (Right Column) -->
+                <div class="mt-12 lg:mt-0 lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/15 shadow-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4 px-2">
+                            <span class="text-xs font-extrabold text-sky-300 uppercase tracking-widest flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                Informasi & Berita Terkini
+                            </span>
+                            <!-- Custom Action Trigger to Add News (Admin Only) -->
+                            <button onclick="openNewsFormModal()" class="admin-only hidden px-2.5 py-1 text-[11px] bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-bold transition flex items-center gap-1">
+                                <i class="fa-solid fa-plus"></i> Tambah Berita
+                            </button>
+                        </div>
+
+                        <!-- Slider Wrapper -->
+                        <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-950 group">
+                            <div id="carousel-slides-container" class="w-full h-full relative">
+                                <div class="absolute inset-0 flex items-center justify-center text-slate-500">
+                                    <i class="fa-solid fa-spinner fa-spin text-3xl"></i>
+                                </div>
+                            </div>
+                            <!-- Sliders controls -->
+                            <button onclick="prevSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 text-white hover:bg-black/60 transition rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 text-white hover:bg-black/60 transition rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                            <!-- Dots -->
+                            <div id="carousel-dots-container" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1.5 z-10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TUGAS & FUNGSI SECTION -->
+    <section id="tupoksi" class="py-16 sm:py-24 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-100">Pokok Operasional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">Tugas & Fungsi Bidang Kelembagaan</h2>
+                <p class="text-slate-500 mt-4 text-sm sm:text-base font-light">Mempunyai peranan penting dalam perumusan kebijakan teknis, standardisasi kompetensi pelaku wisata, serta pengawasan mutu keandalan usaha pariwisata daerah.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Seksi 1 -->
+                <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl hover:shadow-lg transition duration-200">
+                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-users-rectangle"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Hubungan Kelembagaan</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Mempromosikan koordinasi lintas sektor dalam pelegalitasan Kelompok Sadar Wisata (Pokdarwis) serta asimilasi peran adat, pekon/desa, dan swasta.</p>
+                    <ul class="text-xs text-slate-500 space-y-1.5">
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> SK Kepengurusan Pokdarwis</li>
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> Pembinaan Desa Wisata</li>
+                    </ul>
+                </div>
+                <!-- Seksi 2 -->
+                <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl hover:shadow-lg transition duration-200">
+                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Standardisasi & Sertifikasi SDM</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Menyelenggarakan sertifikasi keahlian, pelatihan hospitality, pembinaan pemandu wisata, serta pemenuhan standar layanan CHSE pariwisata.</p>
+                    <ul class="text-xs text-slate-500 space-y-1.5">
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> Fasilitasi Sertifikasi Kompetensi</li>
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> Pelatihan Hospitality SDM</li>
+                    </ul>
+                </div>
+                <!-- Seksi 3 -->
+                <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl hover:shadow-lg transition duration-200">
+                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-6 text-xl shadow-sm">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Pengawasan Mutu Usaha</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Melakukan monitoring, perizinan, kualifikasi klasifikasi hotel/akomodasi, serta pengawasan mutu kuliner atau restoran berjejaring lokal.</p>
+                    <ul class="text-xs text-slate-500 space-y-1.5">
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> Klasifikasi Usaha Jasa Wisata</li>
+                        <li><i class="fa-solid fa-check text-sky-500 mr-1"></i> Pemantauan Legalitas Usaha</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRUKTUR ORGANISASI SECTION -->
+    <section id="struktur" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Bagan Instansi</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">Struktur Organisasi Bidang</h2>
+                <p class="text-slate-500 mt-3 text-sm font-light">Klik bagan struktur organisasi di bawah untuk memperbesar dan melihat pembagian tugas kelembagaan secara detail.</p>
+            </div>
+
+            <!-- Organogram Display Container -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden group cursor-zoom-in" onclick="zoomOrganogram()">
+                    <img id="struktur-img-view" src="struktur organisasi pariwisata _20260605_093951_0000.jpg" onerror="this.src='https://placehold.co/1200x800/e2e8f0/475569?text=Struktur+Organisasi+Kelembagaan'" alt="Struktur Organisasi Bidang Kelembagaan" class="w-full h-auto object-contain rounded-2xl mx-auto max-h-[500px] transition-transform duration-300 group-hover:scale-[1.01]">
+                    <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="bg-slate-900/80 backdrop-blur-md text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            Perbesar Bagan
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIREKTORI DATABASE SEKTOR SECTION -->
+    <section id="direktori" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-100">Database Lembaga</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">Direktori Lembaga & Pelaku Sektor</h2>
+                    <p class="text-slate-500 mt-2 text-sm max-w-2xl">Arsip database kemitraan aktif di bawah binaan Bidang Pengembangan Kelembagaan Tanggamus.</p>
+                </div>
+                <!-- Admin Only Add Directory Entry -->
+                <button onclick="openDirectoryFormModal()" class="admin-only hidden px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-folder-plus"></i> Tambah Entitas Baru
+                </button>
+            </div>
+
+            <!-- Directory Search and Filter Controls -->
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search bar -->
+                <div class="relative w-full md:w-96">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="directory-search" onkeyup="filterDirectory()" placeholder="Cari nama, pekon, kecamatan, atau spesialisasi..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-white">
+                </div>
+                <!-- Category tabs -->
+                <div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+                    <button onclick="filterType('semua')" id="btn-filter-semua" class="flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-sky-600 text-white shadow-sm transition">Semua</button>
+                    <button onclick="filterType('pokdarwis')" id="btn-filter-pokdarwis" class="flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Pokdarwis</button>
+                    <button onclick="filterType('hotel')" id="btn-filter-hotel" class="flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Hotel/Akomodasi</button>
+                    <button onclick="filterType('restoran')" id="btn-filter-restoran" class="flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Restoran</button>
+                </div>
+            </div>
+
+            <!-- Directory Grid Display -->
+            <div id="directory-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Content Loading -->
+                <div class="col-span-full text-center py-12 text-slate-400">
+                    <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-2"></i>
+                    <p>Memuat direktori lembaga...</p>
+                </div>
+            </div>
+
+            <!-- No Results View -->
+            <div id="directory-no-results" class="hidden text-center py-16">
+                <i class="fa-solid fa-folder-open text-slate-300 text-5xl mb-4"></i>
+                <p class="text-slate-500 font-medium">Data lembaga tidak ditemukan. Coba gunakan kata kunci pencarian lainnya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLIC E-REGISTRATION FORM SECTION -->
+    <section id="pendaftaran" class="py-16 sm:py-24 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+                <div class="bg-sky-600 p-8 text-center text-white relative">
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-sky-200">Layanan Publik Digital</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold mt-2">Formulir Pendaftaran & E-Registrasi Sektor</h3>
+                    <p class="text-sky-100 text-sm mt-2 leading-relaxed">Daftarkan Pokdarwis baru Anda, registrasi perizinan akomodasi hotel, atau data katering / restoran kuliner Anda agar terdata di Disparekraf.</p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <form id="form-registrasi" onsubmit="submitRegistration(event)" class="space-y-6">
+                        <!-- Klasifikasi Pendaftaran -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Jenis Klasifikasi Registrasi</label>
+                            <select id="reg-layanan" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                                <option value="">-- Pilih Klasifikasi --</option>
+                                <option value="Pendaftaran Pokdarwis Baru">Kelompok Sadar Wisata (Pokdarwis) Baru</option>
+                                <option value="Registrasi Hotel/Akomodasi">Registrasi & Klasifikasi Penginapan/Hotel</option>
+                                <option value="Pendataan Restoran/Kuliner">Pendataan Sektor Usaha Kuliner/Restoran</option>
+                            </select>
+                        </div>
+
+                        <!-- Data Dasar -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Nama Pengaju / Ketua Pengelola</label>
+                                <input type="text" id="reg-nama" required placeholder="Contoh: Heri Wardoyo" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Nama Kelompok / Usaha / Hotel</label>
+                                <input type="text" id="reg-kelompok" required placeholder="Contoh: Pokdarwis Pesona Kiluan" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                            </div>
+                        </div>
+
+                        <!-- Kontak -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Nomor WhatsApp Aktif</label>
+                                <input type="tel" id="reg-wa" required placeholder="Contoh: 08123456789" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Kecamatan Domisili (Tanggamus)</label>
+                                <select id="reg-kecamatan" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                                    <option value="">-- Pilih Kecamatan --</option>
+                                    <option>Kota Agung</option>
+                                    <option>Gisting</option>
+                                    <option>Talang Padang</option>
+                                    <option>Kelumbayan</option>
+                                    <option>Kota Agung Timur</option>
+                                    <option>Kota Agung Barat</option>
+                                    <option>Cukuh Balak</option>
+                                    <option>Semaka</option>
+                                    <option>Pugung</option>
+                                    <option>Wonosobo</option>
+                                    <option>Sumberejo</option>
+                                    <option>Gunung Alip</option>
+                                    <option>Air Naningan</option>
+                                    <option>Ulubelu</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Rincian Deskripsi Kegiatan / Anggota / Fasilitas Utama</label>
+                            <textarea id="reg-deskripsi" rows="4" required placeholder="Tulis rincian singkat seputar kapasitas unit, keunggulan wisata binaan, atau status perizinan usaha Anda saat ini..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-2">
+                            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-extrabold text-sm tracking-wider uppercase shadow-lg shadow-sky-600/20 transition duration-150">
+                                Kirim Data Pendaftaran <i class="fa-solid fa-paper-plane ml-1"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Alert View -->
+                    <div id="success-alert" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center space-y-4">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-slate-900">Pendaftaran Terkirim Sukses!</h4>
+                        <p class="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
+                            Formulir data registrasi Anda telah tersimpan dengan aman pada basis data pariwisata Tanggamus. Staff administrasi bidang akan segera memeriksa kelengkapan pengajuan Anda.
+                        </p>
+                        <button onclick="resetRegistrationForm()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition">Kirim Formulir Lain</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INBOUND SUBMISSIONS MONITORING PANEL (Superadmin only) -->
+    <section id="admin-submissions-section" class="admin-only hidden py-16 bg-slate-900 text-white border-t-4 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/20 px-3 py-1 rounded-full"><i class="fa-solid fa-shield-halved"></i> Dashboard Superadmin</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-3">Monitoring Pengajuan Publik Masuk</h2>
+                    <p class="text-slate-400 mt-1 text-sm">Validasi pengajuan e-registrasi Pokdarwis, Hotel, and Restoran terbaru secara langsung.</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Table -->
+            <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-700 text-slate-200 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="p-4">Tanggal Masuk</th>
+                                <th class="p-4">Jenis Klasifikasi</th>
+                                <th class="p-4">Kelompok / Nama Usaha</th>
+                                <th class="p-4">Kecamatan</th>
+                                <th class="p-4">WhatsApp</th>
+                                <th class="p-4">Rincian Deskripsi</th>
+                                <th class="p-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="submissions-table-body" class="divide-y divide-slate-700">
+                            <tr>
+                                <td colspan="7" class="p-8 text-center text-slate-500 italic">Belum ada pengajuan pendaftaran masuk.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAL SETTING & BRANDING CUSTOMIZER (Superadmin only) -->
+    <section id="admin-branding-section" class="admin-only hidden py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 pb-4 border-b border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-sky-600"></i>
+                    Manajemen Kustomisasi Visual Beranda & Identitas
+                </h2>
+                <p class="text-sm text-slate-500 mt-1">Ganti gambar beranda, bagan struktur organisasi, logo dinas, atau logo bidang. Berkas gambar raksasa Anda akan otomatis dikompresi di peramban.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Branding Dinas & Bidang (Unlimited File Size Compression Support) -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                    <h3 class="font-extrabold text-slate-900 text-base flex items-center">
+                        <i class="fa-solid fa-circle-nodes text-sky-600 mr-2"></i>
+                        Identitas Visual Utama (Diameter Bulat 3cm)
+                    </h3>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Unggah Logo Dinas Baru</label>
+                            <input type="file" id="upload-logo-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100">
+                            <p class="text-[10px] text-slate-400 mt-1">Akan diproses dan dikompresi untuk resolusi bulat 3cm.</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Unggah Logo Bidang Baru</label>
+                            <input type="file" id="upload-bidang-logo-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100">
+                            <p class="text-[10px] text-slate-400 mt-1">Akan disesuaikan untuk diletakkan di sudut kanan atas.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-100">
+                        <button onclick="saveMainBrandingLogos()" class="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-extrabold rounded-xl text-xs shadow-md transition">
+                            Terapkan Perubahan Logo Instansi <i class="fa-solid fa-circle-check ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Latar Belakang & Bagan Organisasi (Smart Compressor Enabled) -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                    <h3 class="font-extrabold text-slate-900 text-base flex items-center">
+                        <i class="fa-solid fa-image text-sky-600 mr-2"></i>
+                        Latar Belakang & Bagan Struktur Organisasi
+                    </h3>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Latar Belakang Beranda</label>
+                            <input type="file" id="upload-bg-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100">
+                            <p class="text-[10px] text-slate-400 mt-1">Resolusi optimal 1280x720px hasil akhir kompresi.</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Bagan Organisasi (Organogram)</label>
+                            <input type="file" id="upload-struct-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100">
+                            <p class="text-[10px] text-slate-400 mt-1">Rasio optimal 1280x960px teks tetap sangat terbaca.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-100">
+                        <button onclick="saveMainVisualAssets()" class="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-extrabold rounded-xl text-xs shadow-md transition">
+                            Terapkan Visual Latar & Bagan <i class="fa-solid fa-upload ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 mb-12">
+            <div>
+                <span class="block text-white font-extrabold text-lg tracking-tight">DISPAREKRAF TANGGAMUS</span>
+                <span class="block text-xs text-sky-400 font-bold uppercase tracking-wider mt-1">Bidang Pengembangan Kelembagaan</span>
+                <p class="text-sm mt-4 text-slate-400 leading-relaxed font-light">
+                    Mewujudkan Tanggamus sebagai sentra pariwisata maju berbasis penguatan sumber daya manusia dan tata kelola kemitraan kelembagaan yang berkelanjutan.
+                </p>
+            </div>
+            <div>
+                <span class="block text-white font-bold text-sm uppercase tracking-wider mb-4">Navigasi Utama</span>
+                <ul class="space-y-2 text-sm font-light">
+                    <li><a href="#beranda" class="hover:text-sky-400 transition">Beranda</a></li>
+                    <li><a href="#tupoksi" class="hover:text-sky-400 transition">Tugas & Fungsi</a></li>
+                    <li><a href="#struktur" class="hover:text-sky-400 transition">Struktur Organisasi</a></li>
+                    <li><a href="#direktori" class="hover:text-sky-400 transition">Direktori Kemitraan</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="block text-white font-bold text-sm uppercase tracking-wider mb-4">Hubungi Kami</span>
+                <div class="space-y-2 text-xs font-light">
+                    <p><i class="fa-solid fa-location-dot text-sky-400 mr-2"></i> Kompleks Perkantoran Pemda, Kota Agung, Tanggamus, Lampung</p>
+                    <p><i class="fa-solid fa-envelope text-sky-400 mr-2"></i> kelembagaan@disparekraf.tanggamus.go.id</p>
+                </div>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-sky-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-sky-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-sky-600 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-900 pt-6 text-center text-xs">
+            <span>Hak Cipta © 2026 Dinas Pariwisata dan Ekonomi Kreatif Kabupaten Tanggamus.</span>
+        </div>
+    </footer>
+
+    <!-- PORTAL LOGIN MODAL -->
+    <div id="login-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-key text-sky-400"></i>
+                    <h3 class="font-extrabold text-lg">Login Portal Superadmin</h3>
+                </div>
+                <button onclick="closeLoginModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <form onsubmit="handleLogin(event)" class="p-6 space-y-4">
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Gunakan kode akses otorisasi pariwisata Tanggamus untuk mengelola direktori dan kustomisasi visual.
+                </p>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kode Akses Khusus</label>
+                    <input type="password" id="login-passcode" required placeholder="Sandi: tanggamus2026" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm bg-slate-50">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm rounded-xl shadow-md transition">
+                        Masuk Dasbor <i class="fa-solid fa-arrow-right-to-bracket ml-1"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- NEWS EDITOR MODAL (Superadmin only) -->
+    <div id="news-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-newspaper text-sky-400"></i>
+                    <h3 id="news-modal-title" class="font-extrabold text-lg">Buat Berita Kelembagaan</h3>
+                </div>
+                <button onclick="closeNewsFormModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <form onsubmit="saveNewsItem(event)" class="p-6 space-y-4">
+                <input type="hidden" id="news-id">
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Judul Berita</label>
+                    <input type="text" id="news-title-input" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: Pembinaan Pokdarwis Tanggamus">
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Tanggal Terbit</label>
+                        <input type="text" id="news-date-input" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: 30 Juni 2026">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Penulis / Sumber</label>
+                        <input type="text" id="news-author-input" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: Bidang Kelembagaan">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Metode Gambar Berita</label>
+                    <select id="news-img-type" onchange="toggleNewsImgSource()" class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50">
+                        <option value="upload">Unggah Gambar Langsung (Tanpa Batas Ukuran)</option>
+                        <option value="url">Tautan Gambar (URL Unsplash / Web)</option>
+                    </select>
+                </div>
+
+                <div id="news-img-url-group" class="hidden">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Tautan Gambar (URL)</label>
+                    <input type="url" id="news-img-url-input" class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="https://images.unsplash.com/...">
+                </div>
+
+                <div id="news-img-upload-group">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Pilih File Foto Berita</label>
+                    <input type="file" id="news-img-file-input" accept="image/*" class="w-full p-1 border rounded-lg text-xs bg-slate-50">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Artikel Lengkap</label>
+                    <textarea id="news-content-input" rows="6" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Tuliskan isi artikel rilis pers selengkapnya..."></textarea>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
+                    <button type="button" id="news-delete-btn" class="hidden px-4 py-2 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold rounded-lg" onclick="deleteNewsItem()">
+                        <i class="fa-solid fa-trash-can mr-1"></i> Hapus Berita
+                    </button>
+                    <div class="flex gap-2 ml-auto">
+                        <button type="button" onclick="closeNewsFormModal()" class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-bold text-slate-600">Batal</button>
+                        <button type="submit" class="px-5 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-xs font-bold shadow-md">Simpan Berita</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DETAIL NEWS LIGHTBOX MODAL -->
+    <div id="news-detail-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-newspaper text-sky-400"></i>
+                    <h3 class="font-extrabold text-lg">Detail Kabar Kelembagaan</h3>
+                </div>
+                <button onclick="closeNewsDetailModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="overflow-y-auto max-h-[80vh]">
+                <div class="w-full h-64 bg-slate-950 relative">
+                    <img id="nd-img" src="" alt="Berita" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 sm:p-8 space-y-4">
+                    <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span id="nd-date"><i class="fa-solid fa-calendar-day mr-1"></i> -</span>
+                        <span id="nd-author"><i class="fa-solid fa-user-pen mr-1"></i> -</span>
+                    </div>
+                    <h2 id="nd-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight"></h2>
+                    <hr class="border-slate-100">
+                    <div id="nd-content" class="text-slate-600 text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line"></div>
+                </div>
+                <div class="p-6 pt-0 flex justify-end border-t border-slate-50">
+                    <button onclick="closeNewsDetailModal()" class="mt-4 px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">Tutup Berita</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIRECTORY ENTITY FORM MODAL (Superadmin only) -->
+    <div id="directory-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="p-6 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-folder-plus text-sky-400"></i>
+                    <h3 id="directory-modal-title" class="font-extrabold text-lg">Kelola Lembaga / Sektor</h3>
+                </div>
+                <button onclick="closeDirectoryModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <form onsubmit="saveDirectoryItem(event)" class="p-6 space-y-4">
+                <input type="hidden" id="dir-id">
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lembaga / Usaha</label>
+                        <input type="text" id="dir-nama" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: Hotel Gisting Permai">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Jenis Klasifikasi</label>
+                        <select id="dir-type" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50">
+                            <option value="pokdarwis">Pokdarwis</option>
+                            <option value="hotel">Hotel/Akomodasi</option>
+                            <option value="restoran">Restoran</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama Ketua / Pengelola</label>
+                        <input type="text" id="dir-ketua" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Bapak/Ibu Pemilik">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Kontak WhatsApp</label>
+                        <input type="tel" id="dir-kontak" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: 0812345678">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Kapasitas / Anggota</label>
+                        <input type="text" id="dir-kapasitas" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: 30 Kamar / 45 Pengurus">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Domisili</label>
+                        <input type="text" id="dir-lokasi" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: Pekon Gisting Bawah, Gisting">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Fokus / Layanan Utama</label>
+                    <input type="text" id="dir-fokus" required class="w-full px-3 py-2 rounded-lg border text-sm bg-slate-50" placeholder="Contoh: Kamar AC, Kolam Renang, Kuliner Khas">
+                </div>
+
+                <div class="pt-4 border-t flex justify-between items-center">
+                    <button type="button" id="dir-delete-btn" class="hidden px-4 py-2 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold rounded-lg" onclick="deleteDirectoryItem()">
+                        <i class="fa-solid fa-trash-can mr-1"></i> Hapus
+                    </button>
+                    <div class="flex gap-2 ml-auto">
+                        <button type="button" onclick="closeDirectoryModal()" class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-bold text-slate-600">Batal</button>
+                        <button type="submit" class="px-5 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-xs font-bold shadow-md">Simpan Data</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DATABASE MODULE & INTERACTIVE SCRIPTS -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Setup Firebase configurations
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
+            ? JSON.parse(__firebase_config) 
+            : {
+                apiKey: "dummy-key-for-preview",
+                authDomain: "disparekraf-tanggamus.firebaseapp.com",
+                projectId: "disparekraf-tanggamus",
+                storageBucket: "disparekraf-tanggamus.appspot.com",
+                messagingSenderId: "12345678",
+                appId: "1:12345678:web:abcd"
+            };
+
+        // Initialize App & Services
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'disparekraf-kelembagaan-tanggamus';
+
+        // Local State Management
+        let currentAdminState = false;
+        let siteBranding = {};
+        let directoryList = [];
+        let newsList = [];
+        let activeSlideIndex = 0;
+        let carouselInterval = null;
+        let activeCategoryFilter = 'semua';
+
+        // Connect Auth & Listeners
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.warn("Auth offline fallback:", err);
+                showToast("Berjalan dalam mode luring/lokal.", "info");
+            }
+        });
+
+        // Auth status state tracker
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                syncSiteBranding();
+                syncNews();
+                syncDirectory();
+                syncSubmissions();
+            }
+        });
+
+        // 1. BRANDING SYNC PIPELINE
+        function syncSiteBranding() {
+            // RULE 1: Strict Paths
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'site_content', 'main_site');
+            onSnapshot(docRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    siteBranding = docSnap.data().branding || {};
+                    renderSiteBranding();
+                } else {
+                    // Seed initial branding configurations
+                    const defaultBranding = {
+                        branding: {
+                            logo_dinas: "https://placehold.co/150x150/0284c7/ffffff?text=Logo+Dinas",
+                            logo_bidang: "https://placehold.co/150x150/0f172a/ffffff?text=Logo+Bidang",
+                            hero_bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+                            struktur_img: "struktur organisasi pariwisata _20260605_093951_0000.jpg"
+                        }
+                    };
+                    setDoc(docRef, defaultBranding);
+                }
+            }, (error) => {
+                console.error("Branding sync error:", error);
+                renderSiteBranding();
+            });
+        }
+
+        function renderSiteBranding() {
+            if (siteBranding.logo_dinas) {
+                // Perbarui logo dinas bulat di beranda
+                if (document.getElementById('dinas-logo-img')) {
+                    document.getElementById('dinas-logo-img').src = siteBranding.logo_dinas;
+                }
+                // Sinkronisasi otomatis ke logo navigasi di pojok kiri atas
+                if (document.getElementById('nav-logo-img')) {
+                    document.getElementById('nav-logo-img').src = siteBranding.logo_dinas;
+                }
+            }
+            if (siteBranding.logo_bidang) document.getElementById('bidang-logo-img').src = siteBranding.logo_bidang;
+            if (siteBranding.hero_bg) document.getElementById('hero-bg-layer').style.backgroundImage = `url('${siteBranding.hero_bg}')`;
+            if (siteBranding.struktur_img) document.getElementById('struktur-img-view').src = siteBranding.struktur_img;
+        }
+
+        // CLIENT-SIDE IMAGE COMPRESSION ENGINE (Ensures Unlimited Upload Files Stay < 1MB limit)
+        function compressImageFile(file, type) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        try {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+                            
+                            let width = img.width;
+                            let height = img.height;
+                            
+                            // Dimensions & Quality Constants based on image use-case
+                            let maxWidth = 1600;
+                            let maxHeight = 1200;
+                            let maxCharLength = 650000; // ~480KB Base64
+                            let quality = 0.75;
+                            
+                            if (type === 'logo') {
+                                maxWidth = 400;
+                                maxHeight = 400;
+                                maxCharLength = 100000; 
+                                quality = 0.85;
+                            } else if (type === 'news') {
+                                maxWidth = 900;
+                                maxHeight = 600;
+                                maxCharLength = 250000;
+                                quality = 0.75;
+                            }
+
+                            // Calculate aspect ratio
+                            if (width > maxWidth || height > maxHeight) {
+                                const ratio = Math.min(maxWidth / width, maxHeight / height);
+                                width = Math.round(width * ratio);
+                                height = Math.round(height * ratio);
+                            }
+
+                            canvas.width = width;
+                            canvas.height = height;
+                            ctx.drawImage(img, 0, 0, width, height);
+
+                            let result = canvas.toDataURL('image/jpeg', quality);
+                            let attempts = 0;
+                            let scale = 0.9;
+
+                            // Recursively downscale and lower quality if base64 size still exceeds safety threshold
+                            while (result.length > maxCharLength && attempts < 8) {
+                                const newWidth = Math.max(50, Math.round(width * scale));
+                                const newHeight = Math.max(50, Math.round(height * scale));
+                                canvas.width = newWidth;
+                                canvas.height = newHeight;
+                                ctx.clearRect(0, 0, newWidth, newHeight);
+                                ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                                
+                                quality = Math.max(0.1, quality - 0.1);
+                                result = canvas.toDataURL('image/jpeg', quality);
+                                scale *= 0.9;
+                                attempts++;
+                            }
+
+                            console.log(`[Smart Compressor] Type: ${type} | Final Size: ${result.length} chars.`);
+                            resolve(result);
+                        } catch (err) {
+                            reject(err);
+                        }
+                    };
+                    img.onerror = () => reject(new Error("Gagal membaca berkas gambar."));
+                    img.src = event.target.result;
+                };
+                reader.onerror = () => reject(new Error("FileReader error."));
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // SAVE IDENTITIES: LOGOS
+        window.saveMainBrandingLogos = async function() {
+            if (!currentAdminState) return;
+            const logoDinasFile = document.getElementById('upload-logo-file').files[0];
+            const logoBidangFile = document.getElementById('upload-bidang-logo-file').files[0];
+
+            if (!logoDinasFile && !logoBidangFile) {
+                showToast("Pilih sekurangnya satu logo yang ingin diperbarui.", "info");
+                return;
+            }
+
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'site_content', 'main_site');
+            const payload = { ...siteBranding };
+
+            try {
+                if (logoDinasFile) {
+                    showToast("Sedang memproses & mengompresi Logo Dinas...", "info");
+                    payload.logo_dinas = await compressImageFile(logoDinasFile, 'logo');
+                }
+                if (logoBidangFile) {
+                    showToast("Sedang memproses & mengompresi Logo Bidang...", "info");
+                    payload.logo_bidang = await compressImageFile(logoBidangFile, 'logo');
+                }
+
+                await updateDoc(docRef, { branding: payload });
+                showToast("Logo berhasil diperbarui di cloud!", "success");
+                
+                document.getElementById('upload-logo-file').value = '';
+                document.getElementById('upload-bidang-logo-file').value = '';
+            } catch (err) {
+                console.error(err);
+                showToast("Gagal mengunggah logo.", "error");
+            }
+        };
+
+        // SAVE VISUALS: BACKGROUND & STRUCTURAL ORGANOGRAM
+        window.saveMainVisualAssets = async function() {
+            if (!currentAdminState) return;
+            const bgFile = document.getElementById('upload-bg-file').files[0];
+            const structFile = document.getElementById('upload-struct-file').files[0];
+
+            if (!bgFile && !structFile) {
+                showToast("Pilih sekurangnya satu aset gambar yang ingin diganti.", "info");
+                return;
+            }
+
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'site_content', 'main_site');
+            const payload = { ...siteBranding };
+
+            try {
+                if (bgFile) {
+                    showToast("Mengompresi Latar Beranda (Tanpa Batas Ukuran)...", "info");
+                    payload.hero_bg = await compressImageFile(bgFile, 'background');
+                }
+                if (structFile) {
+                    showToast("Mengompresi Bagan Organisasi (Tanpa Batas Ukuran)...", "info");
+                    payload.struktur_img = await compressImageFile(structFile, 'structure');
+                }
+
+                await updateDoc(docRef, { branding: payload });
+                showToast("Aset visual berhasil disimpan!", "success");
+
+                document.getElementById('upload-bg-file').value = '';
+                document.getElementById('upload-struct-file').value = '';
+            } catch (err) {
+                console.error(err);
+                showToast("Gagal menyimpan aset visual.", "error");
+            }
+        };
+
+
+        // 2. NEWS SYSTEM (CAROUSEL AUTO-SLIDER)
+        function syncNews() {
+            const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'news');
+            onSnapshot(collRef, (snapshot) => {
+                newsList = [];
+                snapshot.forEach(docSnap => {
+                    newsList.push({ id: docSnap.id, ...docSnap.data() });
+                });
+
+                if (snapshot.empty) {
+                    // Seed initial news articles
+                    const defaultNews = [
+                        {
+                            title: "Fasilitasi Uji Sertifikasi Kompetensi Pelaku Pariwisata Tanggamus",
+                            date: "12 Juni 2026",
+                            author: "Bidang Kelembagaan",
+                            image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80",
+                            content: "Dinas Pariwisata dan Ekonomi Kreatif Kabupaten Tanggamus melalui Bidang Pengembangan Kelembagaan menyelenggarakan fasilitasi sertifikasi profesi kepariwisataan gratis bagi puluhan pelaku jasa dan pemandu wisata di Gisting."
+                        },
+                        {
+                            title: "Pelatihan Hospitaliti dan Standar CHSE untuk Pokdarwis Daerah",
+                            date: "05 Juni 2026",
+                            author: "Bidang Kelembagaan",
+                            image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
+                            content: "Guna meningkatkan standar keramahan dan keselamatan di pekon-pekon wisata, Bidang Kelembagaan mengadakan pelatihan intensif mengenai kepemanduan, penyediaan toilet bersih, dan mitigasi bencana di destinasi."
+                        }
+                    ];
+                    defaultNews.forEach(async (item) => {
+                        const newDoc = doc(collRef);
+                        await setDoc(newDoc, item);
+                    });
+                } else {
+                    renderNewsCarousel();
+                    startSlideTimer();
+                }
+            }, (error) => {
+                console.error("News sync error:", error);
+            });
+        }
+
+        function renderNewsCarousel() {
+            const container = document.getElementById('carousel-slides-container');
+            const dotsContainer = document.getElementById('carousel-dots-container');
+
+            if (!container || !dotsContainer) return;
+            container.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
+            if (newsList.length === 0) {
+                container.innerHTML = `<div class="absolute inset-0 flex items-center justify-center text-slate-400">Belum ada berita yang diterbitkan.</div>`;
+                return;
+            }
+
+            if (activeSlideIndex >= newsList.length) activeSlideIndex = 0;
+
+            newsList.forEach((news, idx) => {
+                const isActive = idx === activeSlideIndex;
+                const activeClasses = isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none';
+
+                // Carousel Slide
+                const slide = document.createElement('div');
+                slide.className = `absolute inset-0 slide-fade transition-all duration-700 ${activeClasses}`;
+                slide.innerHTML = `
+                    <img src="${news.image}" alt="${news.title}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-5 cursor-pointer" onclick="openNewsDetailModal('${news.id}')">
+                        <div class="max-w-md text-left space-y-1">
+                            <span class="inline-flex items-center gap-1 bg-sky-600 text-white font-bold text-[9px] uppercase px-2 py-0.5 rounded-md tracking-wider">
+                                <i class="fa-solid fa-bullhorn text-[8px]"></i> Berita Terkini
+                            </span>
+                            <h3 class="text-sm sm:text-base font-extrabold text-white leading-tight drop-shadow-md hover:text-sky-300 transition line-clamp-2">${news.title}</h3>
+                            <div class="flex items-center gap-3 text-[10px] text-slate-300 font-medium">
+                                <span><i class="fa-solid fa-calendar text-[9px]"></i> ${news.date}</span>
+                                <span><i class="fa-solid fa-user-pen text-[9px]"></i> ${news.author}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Admin Edit Button -->
+                    <button onclick="event.stopPropagation(); openEditNewsModal('${news.id}')" class="admin-only ${currentAdminState ? '' : 'hidden'} absolute top-3 left-3 p-2 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-lg text-[10px] font-extrabold shadow-lg flex items-center gap-1 z-20">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit
+                    </button>
+                `;
+                container.appendChild(slide);
+
+                // Slide Indicators
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-sky-500 w-6' : 'bg-white/50 hover:bg-white'}`;
+                dot.setAttribute('onclick', `jumpToSlide(${idx})`);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function startSlideTimer() {
+            if (carouselInterval) clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+
+        window.nextSlide = function() {
+            if (newsList.length === 0) return;
+            activeSlideIndex = (activeSlideIndex + 1) % newsList.length;
+            renderNewsCarousel();
+        };
+
+        window.prevSlide = function() {
+            if (newsList.length === 0) return;
+            activeSlideIndex = (activeSlideIndex - 1 + newsList.length) % newsList.length;
+            renderNewsCarousel();
+        };
+
+        window.jumpToSlide = function(index) {
+            activeSlideIndex = index;
+            renderNewsCarousel();
+            startSlideTimer();
+        };
+
+
+        // 3. NEWS ADMIN ACTIONS
+        window.openNewsFormModal = function() {
+            document.getElementById('news-modal-title').textContent = "Buat Berita Baru";
+            document.getElementById('news-id').value = '';
+            document.getElementById('news-title-input').value = '';
+            document.getElementById('news-date-input').value = new Date().toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'});
+            document.getElementById('news-author-input').value = 'Bidang Kelembagaan';
+            document.getElementById('news-img-type').value = 'upload';
+            document.getElementById('news-img-url-input').value = '';
+            document.getElementById('news-img-file-input').value = '';
+            document.getElementById('news-content-input').value = '';
+            document.getElementById('news-delete-btn').classList.add('hidden');
+            
+            toggleNewsImgSource();
+            document.getElementById('news-modal').classList.remove('hidden');
+        };
+
+        window.openEditNewsModal = function(id) {
+            const news = newsList.find(n => n.id === id);
+            if (!news) return;
+
+            document.getElementById('news-modal-title').textContent = "Edit Berita Kelembagaan";
+            document.getElementById('news-id').value = news.id;
+            document.getElementById('news-title-input').value = news.title;
+            document.getElementById('news-date-input').value = news.date;
+            document.getElementById('news-author-input').value = news.author;
+            document.getElementById('news-content-input').value = news.content;
+            document.getElementById('news-delete-btn').classList.remove('hidden');
+
+            if (news.image && news.image.startsWith('data:image')) {
+                document.getElementById('news-img-type').value = 'upload';
+            } else {
+                document.getElementById('news-img-type').value = 'url';
+                document.getElementById('news-img-url-input').value = news.image || '';
+            }
+
+            toggleNewsImgSource();
+            document.getElementById('news-modal').classList.remove('hidden');
+        };
+
+        window.closeNewsFormModal = function() {
+            document.getElementById('news-modal').classList.add('hidden');
+        };
+
+        window.toggleNewsImgSource = function() {
+            const type = document.getElementById('news-img-type').value;
+            if (type === 'url') {
+                document.getElementById('news-img-url-group').classList.remove('hidden');
+                document.getElementById('news-img-upload-group').classList.add('hidden');
+            } else {
+                document.getElementById('news-img-url-group').classList.add('hidden');
+                document.getElementById('news-img-upload-group').classList.remove('hidden');
+            }
+        };
+
+        window.saveNewsItem = async function(event) {
+            event.preventDefault();
+            if (!currentAdminState) return;
+
+            const id = document.getElementById('news-id').value;
+            const imgType = document.getElementById('news-img-type').value;
+            let imageVal = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80";
+
+            if (imgType === 'url') {
+                const inputUrl = document.getElementById('news-img-url-input').value;
+                if (inputUrl) imageVal = inputUrl;
+            } else {
+                const file = document.getElementById('news-img-file-input').files[0];
+                if (file) {
+                    showToast("Sedang memproses & mengompresi gambar berita...", "info");
+                    imageVal = await compressImageFile(file, 'news');
+                } else if (id) {
+                    const oldNews = newsList.find(n => n.id === id);
+                    if (oldNews) imageVal = oldNews.image;
+                }
+            }
+
+            const payload = {
+                title: document.getElementById('news-title-input').value,
+                date: document.getElementById('news-date-input').value,
+                author: document.getElementById('news-author-input').value,
+                content: document.getElementById('news-content-input').value,
+                image: imageVal
+            };
+
+            try {
+                if (id) {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'news', id);
+                    await updateDoc(docRef, payload);
+                    showToast("Berita sukses diperbarui.", "success");
+                } else {
+                    const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'news');
+                    await addDoc(collRef, payload);
+                    showToast("Berita baru berhasil diterbitkan.", "success");
+                }
+                closeNewsFormModal();
+            } catch (err) {
+                console.error(err);
+                showToast("Gagal menyimpan berita.", "error");
+            }
+        };
+
+        window.deleteNewsItem = async function() {
+            const id = document.getElementById('news-id').value;
+            if (!id || !currentAdminState) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'news', id);
+                await deleteDoc(docRef);
+                showToast("Berita berhasil dihapus.", "success");
+                closeNewsFormModal();
+            } catch (err) {
+                showToast("Gagal menghapus berita.", "error");
+            }
+        };
+
+        window.openNewsDetailModal = function(id) {
+            const news = newsList.find(n => n.id === id);
+            if (!news) return;
+
+            document.getElementById('nd-img').src = news.image;
+            document.getElementById('nd-date').innerHTML = `<i class="fa-solid fa-calendar-day mr-1"></i> ${news.date}`;
+            document.getElementById('nd-author').innerHTML = `<i class="fa-solid fa-user-pen mr-1"></i> Penulis: ${news.author}`;
+            document.getElementById('nd-title').textContent = news.title;
+            document.getElementById('nd-content').textContent = news.content;
+
+            document.getElementById('news-detail-modal').classList.remove('hidden');
+        };
+
+        window.closeNewsDetailModal = function() {
+            document.getElementById('news-detail-modal').classList.add('hidden');
+        };
+
+
+        // 4. DIRECTORY DATABASE SECTOR
+        function syncDirectory() {
+            const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'directory');
+            onSnapshot(collRef, (snapshot) => {
+                directoryList = [];
+                snapshot.forEach(docSnap => {
+                    directoryList.push({ id: docSnap.id, ...docSnap.data() });
+                });
+
+                if (snapshot.empty) {
+                    // Seed initial directories
+                    const defaultDirs = [
+                        { nama: "Pokdarwis Teluk Kiluan", type: "pokdarwis", ketua: "Bapak Madi", kapasitas: "45 Pengurus", lokasi: "Pekon Kiluan Negeri, Kelumbayan", fokus: "Konservasi Lumba-Lumba & Ekowisata Bahari", kontak: "082345678912" },
+                        { nama: "Hotel Gisting Permai", type: "hotel", ketua: "Ibu Ratna Kumala", kapasitas: "30 Kamar", lokasi: "Pekon Gisting Bawah, Gisting", fokus: "Penginapan AC, Kolam Renang Alami, Meeting Room", kontak: "081234567890" },
+                        { nama: "Restoran Savana Gisting", type: "restoran", ketua: "Bapak H. Sugeng", kapasitas: "150 Kursi", lokasi: "Pekon Gisting Atas, Gisting", fokus: "Kuliner Khas Tanggamus & Nusantara", kontak: "081122334455" },
+                        { nama: "Pokdarwis Way Lalaan", type: "pokdarwis", ketua: "Bapak Anton", kapasitas: "32 Pengurus", lokasi: "Pekon Kampung Baru, Kota Agung Timur", fokus: "Pengelolaan Wisata Air Terjun & Edukasi", kontak: "081344556677" },
+                        { nama: "Penginapan Gisting Cottage", type: "hotel", ketua: "Bapak Herman", kapasitas: "12 Unit Pondok", lokasi: "Pekon Gisting Bawah, Gisting", fokus: "Suasana Asri Pegunungan, Jogging Track", kontak: "085377889900" }
+                    ];
+                    defaultDirs.forEach(async (item) => {
+                        const newDoc = doc(collRef);
+                        await setDoc(newDoc, item);
+                    });
+                } else {
+                    renderDirectoryGrid();
+                }
+            }, (error) => {
+                console.error("Directory sync error:", error);
+            });
+        }
+
+        function renderDirectoryGrid() {
+            const container = document.getElementById('directory-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            directoryList.forEach(item => {
+                let badgeColor, labelType;
+                if (item.type === 'pokdarwis') {
+                    badgeColor = 'text-emerald-600 bg-emerald-50 border-emerald-100';
+                    labelType = 'Pokdarwis';
+                } else if (item.type === 'hotel') {
+                    badgeColor = 'text-sky-600 bg-sky-50 border-sky-100';
+                    labelType = 'Hotel/Akomodasi';
+                } else {
+                    badgeColor = 'text-amber-600 bg-amber-50 border-amber-100';
+                    labelType = 'Restoran';
+                }
+
+                const card = document.createElement('div');
+                card.className = "directory-item bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:border-sky-200 hover:shadow-md transition relative group";
+                card.setAttribute('data-type', item.type);
+                card.innerHTML = `
+                    <button onclick="openEditDirectoryModal('${item.id}')" class="admin-only ${currentAdminState ? '' : 'hidden'} absolute top-4 right-4 p-2 bg-amber-100 text-amber-700 hover:bg-amber-200 rounded-lg text-xs font-bold shadow-md z-10">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-extrabold tracking-widest ${badgeColor} border px-2.5 py-1 rounded-md uppercase">${labelType}</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-check-circle text-sky-500 mr-1"></i> Terbina</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-1">${item.nama}</h4>
+                        <p class="text-xs text-slate-500 mb-4"><i class="fa-solid fa-location-dot mr-1 text-sky-600"></i> ${item.lokasi}</p>
+                        
+                        <div class="border-t border-slate-100 pt-4 grid grid-cols-2 gap-2 text-xs text-slate-600">
+                            <div><strong>Pengelola:</strong> <p class="text-slate-800 mt-0.5">${item.ketua}</p></div>
+                            <div><strong>Kapasitas:</strong> <p class="text-slate-800 mt-0.5">${item.kapasitas}</p></div>
+                            <div class="col-span-2 mt-2"><strong>Fokus & Layanan:</strong> <p class="text-slate-800 mt-0.5 font-semibold">${item.fokus}</p></div>
+                        </div>
+
+                        <div class="mt-5 pt-3 border-t border-slate-50 flex items-center justify-between">
+                            <a href="https://wa.me/${item.kontak.replace(/[^0-9]/g, '')}" target="_blank" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Hubungi WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            filterDirectory();
+        }
+
+        window.filterType = function(type) {
+            activeCategoryFilter = type;
+            const filterBtns = ['semua', 'pokdarwis', 'hotel', 'restoran'];
+            
+            filterBtns.forEach(btnId => {
+                const btn = document.getElementById(`btn-filter-${btnId}`);
+                if (btn) {
+                    if (btnId === type) {
+                        btn.className = "flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-sky-600 text-white shadow-sm transition";
+                    } else {
+                        btn.className = "flex-shrink-0 px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+                    }
+                }
+            });
+
+            filterDirectory();
+        };
+
+        window.filterDirectory = function() {
+            const query = document.getElementById('directory-search').value.toLowerCase();
+            const items = document.querySelectorAll('.directory-item');
+            let hasVisibleItems = false;
+
+            items.forEach(item => {
+                const type = item.getAttribute('data-type');
+                const contentText = item.textContent.toLowerCase();
+                
+                const matchesType = (activeCategoryFilter === 'semua' || type === activeCategoryFilter);
+                const matchesSearch = contentText.includes(query);
+
+                if (matchesType && matchesSearch) {
+                    item.style.display = 'block';
+                    hasVisibleItems = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            const noResults = document.getElementById('directory-no-results');
+            if (noResults) {
+                if (hasVisibleItems) {
+                    noResults.classList.add('hidden');
+                } else {
+                    noResults.classList.remove('hidden');
+                }
+            }
+        };
+
+        // 5. DIRECTORY ADMIN ACTIONS
+        window.openDirectoryFormModal = function() {
+            document.getElementById('directory-modal-title').textContent = "Tambah Entitas Baru";
+            document.getElementById('dir-id').value = '';
+            document.getElementById('dir-nama').value = '';
+            document.getElementById('dir-type').value = 'pokdarwis';
+            document.getElementById('dir-ketua').value = '';
+            document.getElementById('dir-kontak').value = '';
+            document.getElementById('dir-kapasitas').value = '';
+            document.getElementById('dir-lokasi').value = '';
+            document.getElementById('dir-fokus').value = '';
+            document.getElementById('dir-delete-btn').classList.add('hidden');
+            document.getElementById('directory-modal').classList.remove('hidden');
+        };
+
+        window.openEditDirectoryModal = function(id) {
+            const item = directoryList.find(d => d.id === id);
+            if (!item) return;
+
+            document.getElementById('directory-modal-title').textContent = "Edit Entitas Terbina";
+            document.getElementById('dir-id').value = item.id;
+            document.getElementById('dir-nama').value = item.nama;
+            document.getElementById('dir-type').value = item.type;
+            document.getElementById('dir-ketua').value = item.ketua;
+            document.getElementById('dir-kontak').value = item.kontak;
+            document.getElementById('dir-kapasitas').value = item.kapasitas;
+            document.getElementById('dir-lokasi').value = item.lokasi;
+            document.getElementById('dir-fokus').value = item.fokus;
+            document.getElementById('dir-delete-btn').classList.remove('hidden');
+            document.getElementById('directory-modal').classList.remove('hidden');
+        };
+
+        window.closeDirectoryModal = function() {
+            document.getElementById('directory-modal').classList.add('hidden');
+        };
+
+        window.saveDirectoryItem = async function(event) {
+            event.preventDefault();
+            if (!currentAdminState) return;
+
+            const id = document.getElementById('dir-id').value;
+            const payload = {
+                nama: document.getElementById('dir-nama').value,
+                type: document.getElementById('dir-type').value,
+                ketua: document.getElementById('dir-ketua').value,
+                kontak: document.getElementById('dir-kontak').value,
+                kapasitas: document.getElementById('dir-kapasitas').value,
+                lokasi: document.getElementById('dir-lokasi').value,
+                fokus: document.getElementById('dir-fokus').value
+            };
+
+            try {
+                if (id) {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'directory', id);
+                    await updateDoc(docRef, payload);
+                    showToast("Entitas direktori berhasil diperbarui.", "success");
+                } else {
+                    const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'directory');
+                    await addDoc(collRef, payload);
+                    showToast("Entitas direktori baru berhasil didaftarkan.", "success");
+                }
+                closeDirectoryModal();
+            } catch (err) {
+                console.error(err);
+                showToast("Gagal menyimpan data direktori.", "error");
+            }
+        };
+
+        window.deleteDirectoryItem = async function() {
+            const id = document.getElementById('dir-id').value;
+            if (!id || !currentAdminState) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'directory', id);
+                await deleteDoc(docRef);
+                showToast("Data direktori berhasil dihapus.", "success");
+                closeDirectoryModal();
+            } catch (err) {
+                showToast("Gagal menghapus data direktori.", "error");
+            }
+        };
+
+
+        // 6. PUBLIC E-REGISTRATION FORM
+        window.submitRegistration = async function(event) {
+            event.preventDefault();
+            const payload = {
+                layanan: document.getElementById('reg-layanan').value,
+                nama: document.getElementById('reg-nama').value,
+                kelompok: document.getElementById('reg-kelompok').value,
+                wa: document.getElementById('reg-wa').value,
+                kecamatan: document.getElementById('reg-kecamatan').value,
+                deskripsi: document.getElementById('reg-deskripsi').value,
+                timestamp: new Date().toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'})
+            };
+
+            try {
+                const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
+                await addDoc(collRef, payload);
+                
+                document.getElementById('form-registrasi').classList.add('hidden');
+                document.getElementById('success-alert').classList.remove('hidden');
+                showToast("Pendaftaran berhasil diajukan!", "success");
+            } catch (err) {
+                console.error(err);
+                showToast("Terjadi kesalahan sistem pengiriman.", "error");
+            }
+        };
+
+        window.resetRegistrationForm = function() {
+            document.getElementById('form-registrasi').reset();
+            document.getElementById('form-registrasi').classList.remove('hidden');
+            document.getElementById('success-alert').classList.add('hidden');
+        };
+
+
+        // 7. INBOUND SUBMISSIONS MONITORING (Admin Only)
+        function syncSubmissions() {
+            const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
+            onSnapshot(collRef, (snapshot) => {
+                const tbody = document.getElementById('submissions-table-body');
+                if (!tbody) return;
+                tbody.innerHTML = '';
+
+                if (snapshot.empty) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="7" class="p-8 text-center text-slate-500 italic">Belum ada data pengajuan pendaftaran masuk.</td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    const tr = document.createElement('tr');
+                    tr.className = "border-b border-slate-700 hover:bg-slate-800/50 transition";
+                    tr.innerHTML = `
+                        <td class="p-4 text-xs font-semibold whitespace-nowrap">${data.timestamp || 'Baru Saja'}</td>
+                        <td class="p-4 text-sky-400 font-bold text-xs">${data.layanan}</td>
+                        <td class="p-4">
+                            <div class="font-bold text-white text-sm">${data.kelompok}</div>
+                            <div class="text-xs text-slate-400">Ketua/Pemilik: ${data.nama}</div>
+                        </td>
+                        <td class="p-4 text-xs text-slate-300 font-medium">${data.kecamatan}</td>
+                        <td class="p-4">
+                            <a href="https://wa.me/${data.wa.replace(/[^0-9]/g, '')}" target="_blank" class="inline-flex items-center gap-1 text-xs bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-full font-bold">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </a>
+                        </td>
+                        <td class="p-4 text-xs font-light max-w-xs truncate" title="${data.deskripsi}">${data.deskripsi}</td>
+                        <td class="p-4 text-center">
+                            <button onclick="deleteSubmission('${docSnap.id}')" class="p-1.5 bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white rounded-lg transition text-xs">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }, (error) => {
+                console.error("Submissions sync error:", error);
+            });
+        }
+
+        window.deleteSubmission = async function(id) {
+            if (!currentAdminState) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'submissions', id);
+                await deleteDoc(docRef);
+                showToast("Pengajuan berhasil dihapus.", "success");
+            } catch (err) {
+                showToast("Gagal menghapus data pengajuan.", "error");
+            }
+        };
+
+
+        // 8. SUPERADMIN PORTAL AUTHENTICATION
+        window.handleLogin = function(event) {
+            event.preventDefault();
+            const passcode = document.getElementById('login-passcode').value;
+
+            // Strict secure hardcoded passcode verification
+            if (passcode === 'tanggamus2026') {
+                currentAdminState = true;
+                closeLoginModal();
+                showToast("Otorisasi Sukses! Akses Superadmin diaktifkan.", "success");
+                
+                // Expose Admin UI items
+                document.querySelectorAll('.admin-only').forEach(elem => {
+                    elem.classList.remove('hidden');
+                });
+                
+                document.getElementById('nav-admin-btn').innerHTML = `<i class="fa-solid fa-shield-halved"></i> Dasbor Admin`;
+                document.getElementById('nav-admin-btn').setAttribute('onclick', "window.location.hash='#admin-submissions-section'");
+                document.getElementById('admin-strip').classList.remove('hidden');
+                
+                // Redraw modules to expose editing controls
+                renderNewsCarousel();
+                renderDirectoryGrid();
+            } else {
+                showToast("Kode sandi yang dimasukkan tidak cocok.", "error");
+            }
+        };
+
+        window.logoutAdmin = function() {
+            currentAdminState = false;
+            document.querySelectorAll('.admin-only').forEach(elem => {
+                elem.classList.add('hidden');
+            });
+            document.getElementById('nav-admin-btn').innerHTML = `<i class="fa-solid fa-user-shield"></i> Akses Superadmin`;
+            document.getElementById('nav-admin-btn').setAttribute('onclick', "openLoginModal()");
+            document.getElementById('admin-strip').classList.add('hidden');
+            showToast("Akses superadmin telah dinonaktifkan.", "info");
+
+            renderNewsCarousel();
+            renderDirectoryGrid();
+        };
+
+        // Elegant Toast Alert Box System
+        function showToast(message, type = "info") {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            
+            const bgClass = type === 'success' 
+                ? 'bg-sky-600 text-white shadow-sky-500/10' 
+                : type === 'error' 
+                    ? 'bg-rose-600 text-white shadow-rose-500/10' 
+                    : 'bg-slate-800 text-white shadow-slate-900/10';
+
+            const icon = type === 'success' 
+                ? 'fa-circle-check' 
+                : type === 'error' 
+                    ? 'fa-triangle-exclamation' 
+                    : 'fa-info-circle';
+
+            toast.className = `flex items-center gap-3 px-4 py-3.5 rounded-xl shadow-lg border border-white/10 ${bgClass} transition-all duration-300 transform translate-x-12 opacity-0`;
+            toast.innerHTML = `
+                <i class="fa-solid ${icon} text-lg shrink-0"></i>
+                <span class="text-xs font-bold leading-tight">${message}</span>
+            `;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-x-12', 'opacity-0');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('translate-x-12', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+        window.showToast = showToast;
+    </script>
+
+    <!-- GENERAL VISUAL INTERACTIVITY SCRIPTS -->
+    <script>
+        // Toggle Mobile Menu Drawer
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.className = "fa-solid fa-bars text-xl";
+                } else {
+                    menuIcon.className = "fa-solid fa-xmark text-xl";
+                }
+            });
+        }
+
+        // Modal triggers
+        function openLoginModal() {
+            document.getElementById('login-modal').classList.remove('hidden');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+            document.getElementById('login-passcode').value = '';
+        }
+
+        // Lightbox for Organizational Structure (Zooming)
+        function zoomOrganogram() {
+            const currentSrc = document.getElementById('struktur-img-view').src;
+            const zoomModal = document.createElement('div');
+            zoomModal.className = "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-4 cursor-zoom-out";
+            zoomModal.innerHTML = `
+                <button class="absolute top-6 right-6 text-white hover:text-sky-400 font-extrabold flex items-center gap-2 bg-slate-900/80 border border-slate-700 px-4 py-2 rounded-xl text-xs shadow-lg transition">
+                    <i class="fa-solid fa-xmark text-sm"></i> Tutup Tampilan
+                </button>
+                <div class="relative max-w-5xl w-full flex items-center justify-center">
+                    <img src="${currentSrc}" class="w-full h-auto max-h-[85vh] object-contain rounded-2xl shadow-2xl">
+                </div>
+            `;
+            zoomModal.addEventListener('click', () => zoomModal.remove());
+            document.body.appendChild(zoomModal);
+        }
+    </script>
+</body>
+</html>
